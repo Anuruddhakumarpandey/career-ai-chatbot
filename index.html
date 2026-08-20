@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CareerAI - AI Career Assistant</title>
+
+    <!-- Font Awesome Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    >
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- =================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                <i class="fa-solid fa-robot"></i>
+            </div>
+
+            <div>
+
+                <h2>CareerAI</h2>
+
+                <span>AI Career Assistant</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- NEW CHAT -->
+
+        <button
+            class="new-chat"
+            id="newChatBtn">
+
+            <i class="fa-solid fa-plus"></i>
+
+            New Chat
+
+        </button>
+
+
+        <!-- TOOLS -->
+
+        <div class="sidebar-title">
+            AI Tools
+        </div>
+
+
+        <!-- INTERVIEW ASSISTANT -->
+
+        <button
+            class="tool-btn"
+            id="interviewBtn"
+            data-mode="Interview">
+
+            <i class="fa-solid fa-bullseye"></i>
+
+            <span>
+
+                Interview Assistant
+
+                <small>
+                    Practice Python interviews
+                </small>
+
+            </span>
+
+        </button>
+
+
+        <!-- RESUME ASSISTANT -->
+
+        <button
+            class="tool-btn"
+            id="resumeBtn"
+            data-mode="Resume">
+
+            <i class="fa-solid fa-file-lines"></i>
+
+            <span>
+
+                Resume Assistant
+
+                <small>
+                    Improve your resume
+                </small>
+
+            </span>
+
+        </button>
+
+
+        <!-- CODE EXPLAINER -->
+
+        <button
+            class="tool-btn"
+            id="codeBtn"
+            data-mode="Code">
+
+            <i class="fa-solid fa-code"></i>
+
+            <span>
+
+                Code Explainer
+
+                <small>
+                    Review Python code
+                </small>
+
+            </span>
+
+        </button>
+
+
+        <!-- GENERAL CHAT -->
+
+        <button
+            class="tool-btn"
+            id="chatBtn"
+            data-mode="Chat">
+
+            <i class="fa-solid fa-comments"></i>
+
+            <span>
+
+                AI Chat
+
+                <small>
+                    Ask anything
+                </small>
+
+            </span>
+
+        </button>
+
+
+        <!-- RECENT CHATS -->
+
+        <div class="sidebar-title history-heading">
+
+            Recent Chats
+
+        </div>
+
+
+        <div
+            id="historyList"
+            class="history-list">
+
+        </div>
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+            <div class="developer-card">
+
+                <div class="developer-icon">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        CareerAI
+                    </strong>
+
+                    <small>
+                        Python + Gemini + MySQL
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </aside>
+
+
+    <!-- =================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main">
+
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+
+            <div class="assistant-info">
+
+
+                <div class="assistant-avatar">
+
+                    <i class="fa-solid fa-robot"></i>
+
+                    <span class="online"></span>
+
+                </div>
+
+
+                <div>
+
+                    <h3 id="assistantTitle">
+
+                        CareerAI Assistant
+
+                    </h3>
+
+
+                    <p>
+
+                        <span class="status-dot"></span>
+
+                        Online
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- CLEAR CHAT -->
+
+            <button
+                id="clearBtn"
+                class="clear-btn">
+
+                <i class="fa-solid fa-trash"></i>
+
+                Clear Chat
+
+            </button>
+
+
+        </header>
+
+
+        <!-- =================================================
+             CHAT AREA
+        ================================================== -->
+
+        <section
+            class="chat-area"
+            id="chatArea">
+
+
+            <!-- WELCOME SCREEN -->
+
+            <div
+                class="welcome"
+                id="welcome">
+
+
+                <div class="welcome-icon">
+
+                    <i class="fa-solid fa-robot"></i>
+
+                </div>
+
+
+                <h1>
+
+                    Welcome to CareerAI
+
+                </h1>
+
+
+                <p>
+
+                    Your AI assistant for Python learning,
+                    interview preparation, resume improvement
+                    and coding assistance.
+
+                </p>
+
+
+                <!-- QUICK ACTIONS -->
+
+                <div class="quick-actions">
+
+
+                    <!-- INTERVIEW -->
+
+                    <button
+                        class="quick-card"
+                        id="quickInterview">
+
+
+                        <span>
+
+                            <i class="fa-solid fa-bullseye"></i>
+
+                        </span>
+
+
+                        <strong>
+
+                            Interview Assistant
+
+                        </strong>
+
+
+                        <small>
+
+                            Practice Python technical
+                            interview questions
+
+                        </small>
+
+
+                    </button>
+
+
+                    <!-- RESUME -->
+
+                    <button
+                        class="quick-card"
+                        id="quickResume">
+
+
+                        <span>
+
+                            <i class="fa-solid fa-file-lines"></i>
+
+                        </span>
+
+
+                        <strong>
+
+                            Resume Assistant
+
+                        </strong>
+
+
+                        <small>
+
+                            Improve your resume
+                            for developer jobs
+
+                        </small>
+
+
+                    </button>
+
+
+                    <!-- PYTHON LEARNING -->
+
+                    <button
+                        class="quick-card"
+                        id="quickPython">
+
+
+                        <span>
+
+                            <i class="fa-brands fa-python"></i>
+
+                        </span>
+
+
+                        <strong>
+
+                            Learn Python
+
+                        </strong>
+
+
+                        <small>
+
+                            Understand Python concepts
+                            with examples
+
+                        </small>
+
+
+                    </button>
+
+
+                    <!-- CODE -->
+
+                    <button
+                        class="quick-card"
+                        id="quickCode">
+
+
+                        <span>
+
+                            <i class="fa-solid fa-code"></i>
+
+                        </span>
+
+
+                        <strong>
+
+                            Code Explainer
+
+                        </strong>
+
+
+                        <small>
+
+                            Understand and review
+                            your Python code
+
+                        </small>
+
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 INTERVIEW ASSISTANT INFORMATION
+            ================================================== -->
+
+            <div
+                class="interview-info"
+                id="interviewInfo"
+                style="display: none;">
+
+
+                <div class="interview-header">
+
+
+                    <div class="interview-icon">
+
+                        <i class="fa-solid fa-bullseye"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Python Interview Assistant
+                        </h2>
+
+                        <p>
+                            Practice technical questions
+                            and improve your interview skills.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="interview-features">
+
+
+                    <div>
+
+                        <i class="fa-solid fa-circle-question"></i>
+
+                        <span>
+                            Python Questions
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="fa-solid fa-star"></i>
+
+                        <span>
+                            Answer Evaluation
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="fa-solid fa-chart-simple"></i>
+
+                        <span>
+                            Score & Feedback
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="fa-solid fa-lightbulb"></i>
+
+                        <span>
+                            Improvement Tips
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- MESSAGES -->
+
+            <div
+                id="messages"
+                class="messages">
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             TYPING INDICATOR
+        ================================================== -->
+
+        <div
+            id="typing"
+            class="typing">
+
+
+            <div class="typing-avatar">
+
+                <i class="fa-solid fa-robot"></i>
+
+            </div>
+
+
+            <div class="typing-box">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+                AI is thinking...
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             INPUT AREA
+        ================================================== -->
+
+        <footer class="input-section">
+
+
+            <div class="input-container">
+
+
+                <textarea
+                    id="messageInput"
+                    rows="1"
+                    placeholder="Ask CareerAI anything...">
+                </textarea>
+
+
+                <button
+                    id="sendBtn"
+                    class="send-btn"
+                    title="Send message">
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                </button>
+
+
+            </div>
+
+
+            <p class="disclaimer">
+
+                CareerAI can make mistakes.
+                Verify important information.
+
+            </p>
+
+
+        </footer>
+
+
+    </main>
+
+
+</div>
+
+
+<!-- =================================================
+     JAVASCRIPT
+================================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
