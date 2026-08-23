@@ -12,7 +12,7 @@ CORS(
     resources={
         r"/*": {
             "origins": [
-                "https://career-ai-chatbot-20dhfied1-my-project-a7a1.vercel.app"
+                "https://career-ai-chatbot-delta.vercel.app"
             ]
         }
     }
